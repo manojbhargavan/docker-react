@@ -1,0 +1,19 @@
+version: '3'
+services:
+  reactweb:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "80:3000"
+    volumes:
+      - /home/node/app/node_modules
+      - ~/docker/frontend:/home/node/app
+  reacttests:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /home/node/app/node_modules
+      - ~/docker/frontend:/home/node/app
+    command: ["npm", "run", "test"]
