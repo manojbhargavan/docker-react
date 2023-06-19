@@ -12,4 +12,5 @@ RUN npm run build
 
 # Base Container
 FROM nginx
+EXPOSE 80
 COPY --from=builder /usr/reactbuild/build /usr/share/nginx/html
